@@ -1,16 +1,28 @@
 # node10buildContainer
 
-A node 10 build container for docker, with support for ssh keys, webpack, jspm and expreact workflows.
+This is my generic NodeJS build container for web and microservice projects. It is used for private and client 
+projects. It contains
+
+- Node 10
+- Yarn 
+- Webpack
+- JSPM
+- uglify-es 
+- concat-cli
+- typescript
+- tslint 5.18.0
+
+Includes support folders for ssh keys if those are needed by the build.
 
 Copy keys to this secured path
 
     /usr/keys
 
-Copy to this path to build
+Copy source code to this path to build
 
     /usr/build
 
-## Build
+## Build this container
 
 To build, run the following at the command line in project root
 
@@ -22,15 +34,28 @@ Test
     docker exec mytest node -v   # > v10.16.0  
     docker exec mytest yarn -v   # > 1.17.3
 
-Login in to docker. Push to docker hub
+docker tag shukriadams/node10build:latest shukriadams/node10build:x.y.z
+
+Tag
 
     docker tag shukriadams/node10build:latest shukriadams/node10build:x.y.z
+    
+On ARM
+    
+    docker tag shukriadams/node10build:latest shukriadams/node10build:x.y.z-arm
+    
+Push (for me only)
+
     docker push shukriadams/node10build:x.y.z
     docker push shukriadams/node10build:latest
+    docker push shukriadams/node10build:x.y.z-arm
 
-## Use
+## Uses
 
-This script is inteded to be used directly in Jenkins build jobs. Example build :
+### Jenkins 
+
+This script can be used directly in a Jenkins build job. If needed, copy SSH keys in. As the build 
+container itself is not deployed, keys will not be copied further ahead by docker. Example build :
 
     # remove existing container, start a new instance
     container=myBuildContainer
