@@ -9,11 +9,12 @@ RUN apk update &&\
     apk add bash &&\
     apk add sshpass=1.06-r0 &&\
     apk add curl ca-certificates openssh &&\
-    apk add nodejs=10.16.0-r0 &&\
-    apk add npm=10.16.0-r0 &&\
+    apk add nodejs=10.19.0-r0 &&\
+    apk add npm=10.19.0-r0 &&\
     npm install yarn@1.17.3 -g &&\
     npm install webpack@4.39.1 -g &&\
     npm install webpack-cli@3.3.6 -g &&\
+    npm install minify@5.1.1 -g &&\
     npm install jspm@0.16x -g &&\
     npm install uglify-es@3.3.9 -g &&\
     npm install concat-cli@4.0.0 -g &&\
