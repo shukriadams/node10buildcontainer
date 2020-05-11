@@ -25,5 +25,5 @@ RUN apk update &&\
 
 WORKDIR /usr/build
 
-# fix key permissions on start, then keep container up indefinitely
-CMD ["/bin/sh", "-c", "chmod 700 -R /usr/keys && while true ;sleep 5; do continue; done"]
+# fix key permissions on start
+CMD ["/bin/sh", "-c", "chmod 700 -R /usr/keys"]
